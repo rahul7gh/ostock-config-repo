@@ -15,7 +15,11 @@ eureka:
 #visible to eureka server so our gateway only communicates iwth eureka so all good.
 
 #http://gateway-server/actuator/gateway/routes    :- to view the route mapping
-      
+
+#http://localhost:8998/organization-service/organization-service/v1/getid
+
+#This is how we will acess our organization service via gateway
+
 spring:
  cloud:
   gateway:
