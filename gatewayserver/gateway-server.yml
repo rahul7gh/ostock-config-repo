@@ -5,3 +5,20 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl.defaultZone: http://localhost:8072/eureka/ 
+    
+    
+#    The Following configuration automatically maps the incoming request to our microservices by communicating with Eueka Server
+#    using the service id.
+#    eg if the client hit the endpoint: http://localhost:8072/organization-service/v1/create/getId
+#    then it uses the first part of resource uri as the Service id hits the eureka server.
+#By using this automated way we can deploy more mircoservice without the gateway server knwoing beacuse new service will make it
+#visible to eureka server so our gateway only communicates iwth eureka so all good.
+
+#http://gateway-server/actuator/gateway/routes    :- to view the route mapping
+      
+spring:
+ cloud:
+  gateway:
+    discovery.locator:
+      enabled: true
+      lowerCaseServiceId: true
